@@ -1,0 +1,24 @@
+<div>    
+    <div class="jumbotron">
+        <h3>Mappe</h3>
+        <select ng-change="change()" ng-model="selectedMap" class="form-control" ng-options="map.name for map in maps track by map.id">
+            <option value="">Seleziona Mappa</option>
+        </select>
+        <button type="button" ng-click="new()" class="btn btn-default btn-sm">Nuova Mappa</button>
+    </div>
+
+    <div class="jumbotron">
+        <h3>Punti di interesse</h3>
+        <div class="container">
+            <form role="form" class="form-horizontal" ng-submit="submitData()">
+                <div class="form-group">
+                    <b>Dati GeoJSON</b>
+                    <textarea rows="10" placeholder="Inserire i dati GeoJSON salvati da MapBox" ng-model="geoJSON" class="form-control" id="geoJSON" name="geoJSON" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-outline btn-rounded">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+

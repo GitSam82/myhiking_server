@@ -1,0 +1,103 @@
+<div>
+   
+    <div class="jumbotron">
+        <h3>Mappe</h3>
+       
+            <select ng-change="change()" ng-model="selectedMap" class="form-control" ng-options="map.name for map in maps track by map.mapId">
+            <option value="">Seleziona Mappa</option>
+        </select>
+            <button type="button" ng-click="new()" class="btn btn-default btn-sm">Nuova Mappa</button>
+            </div>
+      
+    
+    <div class="jumbotron">
+        <h3>Mappa</h3>
+        <div class="container">
+
+            <form role="form" class="form-horizontal" ng-submit="submitMap()">
+                <div class="form-group">
+                    <b>Access Token</b>
+                    <input type="text" ng-model="mapfields.accessToken" class="form-control" id="accessToken" name="accessToken" required>
+                </div>
+
+                <div class="form-group">
+                    <b>Id Mappa</b>
+                    <input type="text" ng-model="mapfields.mapId" class="form-control" id="mapId" name="mapId" required>
+                </div>
+
+                <div class="form-group">
+                    <b>Nome Mappa</b>
+                    <input type="text" ng-model="mapfields.name" class="form-control" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <b>Zoom massimo</b>
+                    <input type="text" ng-model="mapfields.maxZoom" class="form-control" id="maxZoom" name="maxZoom" required>
+                </div>
+
+                <div class="form-group">
+                    <b>Zoom minimo</b>
+                    <input type="text" ng-model="mapfields.minZoom" class="form-control" id="minZoom" name="minZoom" required>
+                </div>
+
+                <div class="form-group">
+                    <b>Centro</b> 
+                    <div class="form-group">
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Lat.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.centerLat" class="form-control" id="centerLat" name="centerLat" required>
+                        </div>
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Long.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.centerLng" class="form-control" id="centerLng"
+                                   name="centerLng" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Confine sud ovest</b>
+                    <div class="form-group">
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Lat.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.southWestBoundLat" class="form-control" id="southWestBoundLat" name="southWestBoundLat" required>
+                        </div>
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Long.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.southWestBoundLng" class="form-control" id="southWestBoundLng"
+                                   name="southWestBoundLng" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <b>Confine nord est</b>
+
+                    <div class="form-group">
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Lat.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.northEastBoundLat" class="form-control" id="northEastBoundLat" name="northEastBoundLat" required>
+                        </div>
+
+                        <label for="southWestBound" class="col-sm-1 control-label">Long.</label>
+                        <div class="col-sm-5">
+                            <input type="number" ng-model="mapfields.northEastBoundLng" class="form-control" id="northEastBoundLng"
+                                   name="northEastBoundLng" required>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-outline btn-rounded">Submit</button>
+
+
+            </form>
+        </div>  
+    </div>
+</div>
