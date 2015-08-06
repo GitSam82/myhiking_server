@@ -10,12 +10,9 @@
       </div>
 
       <ul class="nav nav-sidebar">
-        <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Statistiche <span class="sr-only">(current)</span></a></li>
-          <li ng-class="{active: $state.includes('map')}"><a ui-sref="map">Mappe</a></li>
-          <li ng-class="{active: $state.includes('mapdata')}"><a ui-sref="mapdata">Dati Mappe</a></li>
+          <li ng-show="showLink()" ng-class="{active: $state.includes('map')}"><a ui-sref="map">Mappe</a></li>
+          <li ng-show="showLink()" ng-class="{active: $state.includes('mapdata')}"><a ui-sref="mapdata">Dati Mappe</a></li>
           <li ng-class="{active: $state.includes('checkpoints')}"><a ui-sref="checkpoints">Checkpoints</a></li>
-
-        <li ng-class="{active: $state.includes('authorization')}"><a ui-sref="reports">Permessi</a></li>
       </ul>
 
     </div>

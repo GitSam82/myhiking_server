@@ -45,9 +45,19 @@ angular.module('MyHikingDashboard.controllers', [])
         return false;
     }
 
-  }).controller('DashboardCtrl', function($scope, $state) {
+  }).controller('DashboardCtrl', function($rootScope, $scope, $state) {
 
     $scope.$state = $state;
+    
+    $scope.showLink = function(){
+        
+       return $rootScope.currentUser[0].perm_map;
+    
+    }
+    
+    
+   
+    
 
   }).controller('CheckpointCtrl', function($scope, $state,MapService) {
 
@@ -138,8 +148,9 @@ angular.module('MyHikingDashboard.controllers', [])
         return false;
     }
 
-  }).controller('MapDataCtrl', function($scope, $state, MapService) {
+  }).controller('MapDataCtrl', function($rootScope, $scope, $state, MapService) {
     $scope.$state = $state;
+    alert($rootScope.currentUser);
 
     $scope.maps = [];
     $scope.selectedMap = undefined;

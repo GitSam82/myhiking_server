@@ -16,19 +16,28 @@ angular
         .state('base', {
         abstract: true,
         url: '',
-        templateUrl: 'partials/base.html'
+        templateUrl: 'partials/base.html',
+        access: {
+            requiresLogin: false
+        }
     })
         .state('login', {
         url: '/login',
         parent: 'base',
         templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        access: {
+            requiresLogin: false
+        }
     })
         .state('registration', {
         url: '/registration',
         parent: 'base',
         templateUrl: 'partials/registration.html',
-        controller: 'RegistrationCtrl'
+        controller: 'RegistrationCtrl',
+        access: {
+            requiresLogin: false
+        }
     })
         .state('dashboard', {
         url: '/dashboard',

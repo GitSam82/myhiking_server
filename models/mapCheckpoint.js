@@ -6,6 +6,7 @@ checkpointId: String,
 directions : String,
 directionsImg : String,
 title : String,
-description: String    
+description: String,
+accessNumber: { type: Number, default: 0 }    
 });
 module.exports = mongoose.model('MapCheckpoint', MapCheckpointSchema);

@@ -91,7 +91,7 @@ router.post('/createCheckpoint', function(req, res, next) {
     var query = {"mapId":req.body.mapId, "routeId" : req.body.routeId, "checkpointId": req.body.checkpointId };
     var update = req.body;
     var options = {upsert: true, new: true};
-    
+
     mapCheckpoint.findOneAndUpdate(query, update, options,function (err) {
         if (err) {
             console.log(err);
@@ -103,6 +103,5 @@ router.post('/createCheckpoint', function(req, res, next) {
     });
      
 });
-
 
 module.exports = router;
