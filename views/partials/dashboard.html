@@ -1,23 +1,62 @@
-<div class="dashboard-page">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
 
-       <div class="text-center">
-        <h2 class="brand">Ani Theme <small>Free Edition</small></h2>
-        <img src="images/flat-avatar.png" class="user-avatar" /><br />
-        <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
-      </div>
 
-      <ul class="nav nav-sidebar">
-          <li ng-show="showLink()" ng-class="{active: $state.includes('map')}"><a ui-sref="map">Mappe</a></li>
-          <li ng-show="showLink()" ng-class="{active: $state.includes('mapdata')}"><a ui-sref="mapdata">Dati Mappe</a></li>
-          <li ng-class="{active: $state.includes('checkpoints')}"><a ui-sref="checkpoints">Checkpoints</a></li>
-      </ul>
+<div class="dashboard">
+    <!-- <div class="row">-->
 
-    </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
-    </div>
-  </div>
+
+    <!--<div class="col-sm-3 col-md-2 sidebar">
+
+<div class="text-center">
+<h2 class="brand">My Hiking</h2>
 </div>
+
+<ul class="nav nav-sidebar">
+<li ng-show="showLink()" ng-class="{active: $state.includes('map')}"><a ui-sref="map">Mappe</a></li>
+<li ng-show="showLink()" ng-class="{active: $state.includes('mapdata')}"><a ui-sref="mapdata">Dati Mappe</a></li>
+<li ng-class="{active: $state.includes('checkpoints')}"><a ui-sref="checkpoints">Checkpoints</a></li>
+<li ng-show="showLink()" ng-class="{active: $state.includes('authorizations')}"><a ui-sref="authorizations">Autorizzazioni</a></li>
+<li ng-class="{active: $state.includes('login')}"><a ui-sref="login">Logout</a></li>
+
+</ul>
+
+</div>-->
+
+    <!-- top navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" onclick="$('.row-offcanvas').toggleClass('active');" data-toggle="offcanvas" data-target=".sidebar-nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-left">
+
+            <!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas col-md-2" id="sidebar" role="navigation">
+
+                <div class="text-center">
+                    <h2 class="brand">My Hiking</h2>
+                </div>
+
+                <ul class="nav">
+                    <li ng-show="showLink()" ng-class="{active: $state.includes('map')}"><a ui-sref="map">Mappe</a></li>
+                    <li ng-show="showLink()" ng-class="{active: $state.includes('mapdata')}"><a ui-sref="mapdata">Dati Mappe</a></li>
+                    <li ng-class="{active: $state.includes('checkpoints')}"><a ui-sref="checkpoints">Checkpoints</a></li>
+                    <li ng-show="showLink()" ng-class="{active: $state.includes('authorizations')}"><a ui-sref="authorizations">Autorizzazioni</a></li>
+                    <li ng-class="{active: $state.includes('login')}"><a ui-sref="login">Logout</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
+            </div>
+        </div>
+    </div>
+
 </div>

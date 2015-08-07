@@ -1,15 +1,18 @@
 <div>
-   
+
+
     <div class="jumbotron">
-        <h3>Mappe</h3>
-       
+        <div class="container">
+            <h3>Mappe</h3>
+
             <select ng-change="change()" ng-model="selectedMap" class="form-control" ng-options="map.name for map in maps track by map.mapId">
-            <option value="">Seleziona Mappa</option>
-        </select>
+                <option value="">Seleziona Mappa</option>
+            </select>
             <button type="button" ng-click="new()" class="btn btn-default btn-sm">Nuova Mappa</button>
-            </div>
-      
-    
+        </div>
+    </div>
+
+
     <div class="jumbotron">
         <h3>Mappa</h3>
         <div class="container">
@@ -91,11 +94,11 @@
                         </div>
                     </div>
 
-
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-lg btn-outline btn-rounded">Submit</button>
-
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                </div>
 
             </form>
         </div>  

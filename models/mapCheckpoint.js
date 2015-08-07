@@ -7,6 +7,8 @@ directions : String,
 directionsImg : String,
 title : String,
 description: String,
-accessNumber: { type: Number, default: 0 }    
+accessNumber: { type: Number, default: 0 },
+latitude: String,
+longitude: String
 });
 module.exports = mongoose.model('MapCheckpoint', MapCheckpointSchema);

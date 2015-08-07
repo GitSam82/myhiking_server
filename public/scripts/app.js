@@ -79,6 +79,14 @@ angular
         access: {
             requiresLogin: false
         }
+    }) .state('authorizations', {
+        url: '/authorizations',
+        parent: 'dashboard',
+        templateUrl: 'partials/dashboard/authorization.html',
+        controller: 'AuthorizationCtrl',
+        access: {
+            requiresLogin: false
+        }
     })
         .state('reports', {
         url: '/reports',

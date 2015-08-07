@@ -1,0 +1,37 @@
+<div>
+
+    <div class="jumbotron">
+        <h3>Utenti</h3>
+
+        <select ng-change="change()" ng-model="selectedUser" class="form-control" ng-options="user.email for user in users track by user.email">
+            <option value="">Seleziona Utente</option>
+        </select>
+
+    </div>
+
+
+    <div class="jumbotron">
+        <h3>Mappe</h3>
+        <div class="container">
+
+            <form role="form" class="form-horizontal" ng-submit="submit()">
+                <div class="form-group">
+                    <div class="checkbox" ng-repeat="map in maps">
+                        <label>
+                            <input  
+                                   type="checkbox"
+                                   name="selectedMaps[]"
+                                   value="{{map.mapId}}"
+                                   ng-checked="selectedUserMaps.indexOf(map.mapId) > -1"
+                                   ng-click="toggleSelection(map.mapId)">{{map.name}}
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>

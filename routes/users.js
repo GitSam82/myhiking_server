@@ -24,6 +24,26 @@ router.post('/create', function(req, res, next) {
      
 });
 
+/*POST update a user data*/
+router.post('/update', function(req, res, next) {
+    
+    var query = {"email":req.body.email};
+    var update = req.body;
+    var options = {upsert: true, new: true};
+    
+    user.findOneAndUpdate(
+        query, update, options,function (err) {
+        if (err) {
+            console.log(err);
+            res.send( { "code":"KO", "message": err.message });
+        }else{
+            console.log("User created succesfully");
+            res.send( { "code":"OK"});
+        }
+    });
+     
+});
+
 /*GET create a new user*/
 router.get('/login', 
           // passport.authenticate('local', { 
@@ -44,6 +64,14 @@ router.get('/login',
         }
     });
     
+     
+});
+
+/*GET retrieve all users*/
+router.get('/all', function(req, res, next) {
+     user.find({},{ '_id': 0 }, function(err, docs){
+        res.send(docs);
+    });
      
 });
 
