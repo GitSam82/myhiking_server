@@ -144,7 +144,7 @@ angular.module('MyHikingDashboard.controllers', [])
                 
                 
                 var tmpItem = item;
-                var obj = {mId: item.mapId,rId : item.routeId,cId: item.checkpointId ,lat:item.latitude,lng:item.longitude};
+                var obj = {rId : item.routeId,cId: item.checkpointId ,lat:item.latitude,lng:item.longitude};
                 var jsonObj = JSON.stringify(obj);
                
                 var qrcode = new QRCode(document.getElementById('qrcodeArea_'+index), {
@@ -197,19 +197,19 @@ angular.module('MyHikingDashboard.controllers', [])
     }
 
     $scope.submitMap = function() {
-        var data = $scope.fields;  
+        var data = $scope.mapfields;  
 
         data.folderName = "myhiking_" + data.name;
         data.center = [data.centerLat, data.centerLng];
         data.southWestBound = [data.southWestBoundLat, data.southWestBoundLng];
         data.northEastBound = [data.northEastBoundLat, data.northEastBoundLng];
 
-        delete data.centerLat;
+        /*delete data.centerLat;
         delete data.centerLng;
         delete data.southWestBoundLat;
         delete data.southWestBoundLng;
         delete data.northEastBoundLat;
-        delete data.northEastBoundLng;
+        delete data.northEastBoundLng;*/
 
         MapService.createMap(data).then(function(result) {
             if(result.data.code=="OK"){

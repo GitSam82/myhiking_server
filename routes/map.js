@@ -6,18 +6,29 @@ var map = require('../models/map');
 var mapData = require('../models/mapData');
 var mapCheckpoint = require('../models/mapCheckpoint');
 
+
 /* GET all maps*/
 router.get('/all', function (req, res, next) {
     map.find({}, { '_id': 0 }, function (err, docs) {
-        res.send(docs);
+        if (err) {
+            console.log(err);
+            res.send({"code": "KO", "message": err.message});
+        } else {
+            res.send(docs);
+        }
     });
   
 });
 
 /* GET map init data */
 router.get('/:mapid/base', function (req, res, next) {
-    map.find({"mapId": req.params.mapid}, { '_id': 0 }, function (err, docs) {
-        res.send(docs);
+    map.find({"mapId": req.params.mapid}, { '_id': 0 }, function (err, docs) {        
+        if (err) {
+            console.log(err);
+            res.send({"code": "KO", "message": err.message});
+        } else {
+            res.send(docs);
+        }
     });
   
 });
@@ -25,7 +36,12 @@ router.get('/:mapid/base', function (req, res, next) {
 /* GET map GeoJSON decorations data */
 router.get('/:mapid/decorations', function (req, res, next) {
     mapData.find({"id": req.params.mapid}, { '_id': 0 }, function (err, docs) {
-        res.send(docs);
+        if (err) {
+            console.log(err);
+            res.send({"code": "KO", "message": err.message});
+        } else {
+            res.send(docs);
+        }
     });
   
 });
@@ -33,15 +49,24 @@ router.get('/:mapid/decorations', function (req, res, next) {
 /* GET checkpoint data */
 router.get('/:mapid/:routeId/:checkpointId/data', function (req, res, next) {
     mapCheckpoint.find({"mapId": req.params.mapid, "routeId": req.params.routeId, "checkpointId": req.params.checkpointId}, { '_id': 0 }, function (err, docs) {
-        res.send(docs);
+        if (err) {
+            console.log(err);
+            res.send({"code": "KO", "message": err.message});
+        } else {
+            res.send(docs);
+        }
     });
-  
 });
 
 /* GET checkpoint data */
 router.get('/:mapid/checkpoints/data', function (req, res, next) {
     mapCheckpoint.find({"mapId": req.params.mapid}, { '_id': 0 }, function (err, docs) {
-        res.send(docs);
+        if (err) {
+            console.log(err);
+            res.send({"code": "KO", "message": err.message});
+        } else {
+            res.send(docs);
+        }
     });
   
 });
@@ -61,7 +86,6 @@ router.post('/create', function (req, res, next) {
                 console.log(err);
                 res.send({"code": "KO", "message": err.message});
             } else {
-                console.log("Map created succesfully");
                 res.send({"code": "OK"});
             }
     });
@@ -80,7 +104,6 @@ router.post('/createData', function (req, res, next) {
             console.log(err);
             res.send({"code": "KO", "message": err.message});
         } else {
-            console.log("MapData created succesfully");
             res.send({ "code": "OK"});
         }
     });
@@ -99,7 +122,6 @@ router.post('/createCheckpoint', function (req, res, next) {
             console.log(err);
             res.send({"code": "KO", "message": err.message});
         } else {
-            console.log("Checkpoint created succesfully");
             res.send({"code": "OK"});
         }
     });
