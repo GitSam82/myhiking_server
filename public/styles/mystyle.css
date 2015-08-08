@@ -299,3 +299,12 @@ overflow-y: auto
     }
 }
 
+/*========================QRCODE==============================*/
+
+.qrcode {
+    width:490px;
+    height:490px;
+    margin-top:15px;
+}
+
+

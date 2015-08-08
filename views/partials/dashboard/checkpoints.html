@@ -14,7 +14,7 @@
 <div class="jumbotron">
         <h3>Checkpoint</h3>
         <div ng-repeat="item in checkpoints" class="container">
-            <form role="form" class="form-horizontal" ng-submit="submitCheckpointData(item,this)">
+            <form role="form" class="form-horizontal" ng-submit="submitCheckpointData(item,$index)">
                 <div class="form-group">
                     <b>Identificativo Mappa</b>
                     <input type="text" ng-model="item.mapId" class="form-control" id="mapId" name="mapId" required>
@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <div id="qrcodeArea" ng-model="qrcodeArea" id="qrcodeArea" name="qrcodeArea"></div>
+                    <div id="qrcodeArea_{{$index}}" name="qrcodeArea_{{$index}}" ></div>
                 </div>
                 
                 <div class="form-group">

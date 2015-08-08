@@ -97,8 +97,6 @@ angular.module('MyHikingDashboard.controllers', [])
     $scope.$state = $state;
 
     $scope.showLink = function(){
-        //alert("merda" + $rootScope.currentUser[0].perm_map);
-        //return $rootScope.currentUser[0].perm_map;    
         return $rootScope.currentUser[0].perm_map;
     }
 
@@ -137,9 +135,8 @@ angular.module('MyHikingDashboard.controllers', [])
         });
     };
 
-    $scope.submitCheckpointData = function(item,oggetto) {
+    $scope.submitCheckpointData = function(item,index) {
         
-        alert(oggetto);
         
         MapService.createCheckpoint(item).then(function(result) {
             if(result.data.code=="OK"){
@@ -149,8 +146,8 @@ angular.module('MyHikingDashboard.controllers', [])
                 var tmpItem = item;
                 var obj = {mId: item.mapId,rId : item.routeId,cId: item.checkpointId ,lat:item.latitude,lng:item.longitude};
                 var jsonObj = JSON.stringify(obj);
-                
-                var qrcode = new QRCode(qrcodeArea, {
+               
+                var qrcode = new QRCode(document.getElementById('qrcodeArea_'+index), {
                     width: 490,
                     height: 490,
                     colorDark : "#000000",
@@ -159,6 +156,7 @@ angular.module('MyHikingDashboard.controllers', [])
                 });
                 
                 qrcode.makeCode(jsonObj);
+                 $('#qrcodeArea_'+index).addClass("qrcode");
                 
             }else{
                 $scope.show_resultko=true;
