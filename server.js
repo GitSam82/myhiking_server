@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var http = require('http');
 var db = require('./models/db');
 
 //===========Routes=========================
@@ -38,12 +38,20 @@ app.use('/partials', partials);
 app.use('/map',map);
 //===============================================
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3001 ;
+/*var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3001 ;
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
  
 app.listen(server_port, server_ip_address, function () {
   console.log( "Listening on " + server_ip_address + ", server_port " + server_port );
+});*/
+
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3001);
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+
+http.createServer(app).listen(app.get('port') ,app.get('ip'), function () {
+    console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
 });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
