@@ -1,32 +1,35 @@
- {
-"name": "MyHiking",
-"version": "0.0.1",
-"description": "OpenShift Sever NonBlocking",
-"keywords": [
-"OpenShift",
-"Node.js",
-"application",
-"openshift"
-],
-"author": {
-"name": "Samuele Ferrari"
-},
-"dependencies":
 {
-"body-parser": "~1.13.2",
-"cookie-parser": "~1.3.5",
-"debug": "^2.2.0",
-"express": "~4.13.1",
-"mongoose": "^4.0.8",
-"morgan": "~1.6.1",
-"serve-favicon": "~2.3.0"
-},
-"engines": {
-"node": ">= 0.6.0",
-"npm": ">= 1.0.0"
-},
-"scripts": {
-"start": "node server.js"
-},
-"main": "server.js"
+  "name": "MyHiking",
+  "version": "1.0.0",
+  "description": "OpenShift Sample Application",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift"
+  ],
+  "author": {
+    "name": "Samuele Ferrari"
+  },
+  "homepage": "http://www.openshift.com/",
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "~3.4.4",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "^2.2.0",
+    "mongoose": "^4.0.8",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
 }
