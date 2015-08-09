@@ -1,6 +1,16 @@
-{
+ {
 "name": "MyHiking",
-"version": "1.0.0",
+"version": "0.0.1",
+"description": "OpenShift Sever NonBlocking",
+"keywords": [
+"OpenShift",
+"Node.js",
+"application",
+"openshift"
+],
+"author": {
+"name": "Samuele Ferrari"
+},
 "dependencies":
 {
 "body-parser": "~1.13.2",
@@ -14,4 +24,9 @@
 "engines": {
 "node": ">= 0.6.0",
 "npm": ">= 1.0.0"
+},
+"scripts": {
+"start": "node server.js"
+},
+"main": "server.js"
 }
