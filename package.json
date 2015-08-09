@@ -2,9 +2,7 @@
   "name": "MyHiking",
   "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "start": "node server.js"
-  },
+  "main": "server.js",
   "dependencies": {
     "body-parser": "~1.13.2",
     "cookie-parser": "~1.3.5",
@@ -13,5 +11,9 @@
     "mongoose": "^4.0.8",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
-  }
+  },
+    "engines": {
+        "node": ">= 0.6.0",
+        "npm": ">= 1.0.0"
+    }
 }
