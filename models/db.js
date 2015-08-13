@@ -1,6 +1,6 @@
 // Bring Mongoose into the app 
 var mongoose = require( 'mongoose' ); 
-var uriUtil = require('mongodb-uri');
+//var uriUtil = require('mongodb-uri');
 
 /* 
  * Mongoose by default sets the auto_reconnect option to true.
@@ -13,8 +13,7 @@ var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000
  
 
 // Build the connection string 
-var mongodbUri = 'mongodb://test:test@ds033750.mongolab.com:33750/sam_db'; 
-var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+var mongooseUri = 'mongodb://myhiking:admin@ds055832.mongolab.com:55832/myhiking_db';
 
 // Create the database connection 
 mongoose.connect(mongooseUri,options); 
