@@ -193,4 +193,8 @@ overflow-y: auto
     margin-top:15px;
 }
 
+/*========================CHECKPOINT==============================*/
 
+.hideresult {
+   display:none;
+}

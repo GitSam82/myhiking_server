@@ -102,7 +102,7 @@ angular.module('MyHikingDashboard.controllers', [])
         $scope.checkpoints = [];
         $scope.maps = [];
         $scope.selectedMap = undefined;
-
+    
         MapService.getAllMaps().then(function(result) {
             for (var i=0; i<result.data.length; i++) {
                 if ($rootScope.currentUser[0].maps.indexOf(result.data[i].mapId) > -1) {
@@ -114,6 +114,12 @@ angular.module('MyHikingDashboard.controllers', [])
         $scope.change = function () {
             MapService.getMapCheckpoints($scope.selectedMap.mapId).then(function(result) {        
                 $scope.checkpoints = result.data;
+                
+                for (var i=0; i < $scope.checkpoints.length; i++) {
+                        $scope.checkpoints[i].longitude = parseFloat($scope.checkpoints[i].longitude,10);  
+                        $scope.checkpoints[i].latitude = parseFloat($scope.checkpoints[i].latitude,10);
+
+                }
             });
         }
 
@@ -135,15 +141,17 @@ angular.module('MyHikingDashboard.controllers', [])
 
 
             MapService.createCheckpoint(item).then(function(result) {
-                $scope.show_resultok = [];
+                //$scope.show_resultok = [];
                 if(result.data.code == "OK"){
-                    $scope.show_resultok.push(true);
-
+                  //  $scope.show_resultok.push(true);
+$("#esito_ok_"+index).show();
 
                     var tmpItem = item;
                     var obj = {rId : item.routeId,cId: item.checkpointId ,lat:item.latitude, lng:item.longitude};
                     var jsonObj = JSON.stringify(obj);
-
+                    
+                    document.getElementById('qrcodeArea_' + index).innerHTML="";
+                    
                     var qrcode = new QRCode(document.getElementById('qrcodeArea_' + index), {
                         width: 490,
                         height: 490,
@@ -156,8 +164,9 @@ angular.module('MyHikingDashboard.controllers', [])
                      $('#qrcodeArea_' + index).addClass("qrcode");
 
                 }else{
-                    $scope.show_resultko = [];
-                    $scope.show_resultko.push(true);
+                  //  $scope.show_resultko = [];
+                //    $scope.show_resultko.push(true);
+                    $("#esito_ko_"+index).show();
                     $scope.error_message = result.data.message;
                 }
             });
